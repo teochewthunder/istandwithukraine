@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>#IStandWithUkraine</title>
+
+		<style>
+			body
+			{
+				font-family: arial;
+				font-size: 10px;
+				line-height: 3em;
+			}
+
+			.image
+			{
+				width: 45%;
+				height: 600px;
+				float: left;
+			}
+
+			.top
+			{
+				width: 100%;
+				height: 300px;
+				text-align: center;
+				color: rgba(255, 255, 0, 0.8);
+				background-color: rgba(0, 0, 200, 1);
+			}
+
+			.bottom
+			{
+				width: 100%;
+				height: 300px;
+				text-align: center;
+				color: rgba(0, 0, 200, 0.8);
+				background-color: rgba(255, 255, 0, 1);
+			}
+
+			#message1
+			{
+				padding-top: 270px;
+			}
+
+			.dashboard
+			{
+				width: 45%;
+				float: right;
+			}
+
+			fieldset
+			{
+				width: 90%;
+			}
+
+			legend
+			{
+				font-size: 2em;
+				font-weight: bold;
+			}
+
+			label
+			{
+				display: inline-block;
+				width: 10em;
+			}
+		</style>
+
+		<script>
+			function generateGraphic(section)
+			{
+				var message = document.getElementById("message" + section);
+				var text = document.getElementById("text" + section);
+				var font = document.getElementById("font" + section);
+				var size = document.getElementById("size" + section);
+				var bold = document.getElementById("bold" + section);
+				var italic = document.getElementById("italic" + section);
+
+				message.innerHTML = text.value;
+				message.style.fontFamily = font.value;
+				message.style.fontSize = size.value + "px";
+				message.style.fontWeight = (bold.checked ? "bold" : "normal");
+				message.style.fontStyle = (italic.checked ? "italic" : "normal");
+			}
+		</script>
+	</head>
+	<body onload="generateGraphic(1); generateGraphic(2);">
+		<div class="image">
+			<div class="top">
+				<div id="message1"></div>
+			</div>
+
+			<div class="bottom">
+				<div id="message2"></div>
+			</div>
+		</div>
+
+		<div class="dashboard noprint">
+			<fieldset>
+				<legend>1st Message</legend>
+				<label for="text1">Message: </label>
+				<input id="text1" value="I stand with" onchange="generateGraphic(1)"/>
+				<br />
+				<label for="font1">Font: </label>
+				<select id="font1" onchange="generateGraphic(1)">
+					<option value="arial">arial</option>
+					<option value="georgia">georgia</option>
+					<option value="impact">impact</option>
+					<option value="verdana">verdana</option>
+				</select>
+				<br />
+				<label for="size1">Size: </label>
+				<input type="range" id="size1" value="8" min="8" max="35" step="1" onchange="generateGraphic(1)"/> px
+				<br />
+				<label for="bold1"><input type="checkbox" id="bold1" onchange="generateGraphic(1)"> Bold</label>
+				<br />
+				<label for="italic1"><input type="checkbox" id="italic1" onchange="generateGraphic(1)"> italic</label>
+			</fieldset>
+
+			<fieldset>
+				<legend>2nd Message</legend>
+				<label for="text2">Message: </label>
+				<input id="text2" value="Ukraine" onchange="generateGraphic(2)"/>
+				<br />
+				<label for="font2">Font: </label>
+				<select id="font2" onchange="generateGraphic(2)">
+					<option value="arial">arial</option>
+					<option value="georgia">georgia</option>
+					<option value="impact">impact</option>
+					<option value="verdana">verdana</option>
+				</select>
+				<br />
+				<label for="size2">Size: </label>
+				<input type="range" id="size2" value="8" min="8" max="35" step="1" onchange="generateGraphic(2)"/> px
+				<br />
+				<label for="bold2"><input type="checkbox" id="bold2" onchange="generateGraphic(2)"> Bold</label>
+				<br />
+				<label for="italic2"><input type="checkbox" id="italic2" onchange="generateGraphic(2)"> italic</label>
+			</fieldset>			
+		</div>
+	</body>
+</html>

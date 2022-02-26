@@ -63,6 +63,15 @@
 				display: inline-block;
 				width: 10em;
 			}
+
+		    @media print
+		    {
+		    	.dashboard {display: none;}
+		    	.image
+		    	{
+		    		width: 100%;
+		    	}
+		    }			
 		</style>
 
 		<script>
@@ -94,7 +103,7 @@
 			</div>
 		</div>
 
-		<div class="dashboard noprint">
+		<div class="dashboard">
 			<fieldset>
 				<legend>1st Message</legend>
 				<label for="text1">Message: </label>
